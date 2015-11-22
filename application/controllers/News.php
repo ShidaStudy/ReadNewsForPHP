@@ -41,6 +41,11 @@ class News extends Base {
 		$start = page_start($inputArr['pageNo'], $this->_pageSize);
 		$newsArr = $this->newsModel->getNews($start, $this->_pageSize);
 
+		// 只获取显示的几列
+		$newsArr = get_some_column($newsArr, array(
+			"id", "title", "article_url", "behot_time"
+		));
+
 		// 返回正常结果
 		json_return(1001, $newsArr);
 	}
@@ -76,4 +81,5 @@ class News extends Base {
             json_return(1011);
         }
 	}
+
 }

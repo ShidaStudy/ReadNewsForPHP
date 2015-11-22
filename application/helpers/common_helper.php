@@ -160,4 +160,37 @@ if (!function_exists("page_start")) {
         return ($pageNo-1) * $pageSize;
     }
 }
+
+if (!function_exists("get_some_column")) {
+    /**
+     * 获取 数组中的某些列
+     * @param  [type] $newsArr [description]
+     * @return [type]          [description]
+     */
+    function get_some_column($paramArr = false, $columnArr = false) {
+        // 参数判断
+        if ($paramArr === false || !is_array($paramArr) || $columnArr === false ||
+                !is_array($columnArr)) {
+            return false;
+        }
+
+        $returnArr = array();
+        foreach ($paramArr as $pk => $pv) {
+
+            $tempArr = array();
+            foreach ($columnArr as $cv) {
+                if (!is_empty($pv, $cv)) {
+                    // 存入值
+                    $tempArr[$cv] = $pv[$cv];
+                }
+            }
+
+            // 存入某条数据
+            $returnArr [] = $tempArr;
+        }
+
+        return $returnArr;
+    }
+}
+
 ?>
