@@ -9,7 +9,7 @@ class News extends Base {
 	 * 分页条数
 	 * @var integer
 	 */
-	private $_pageSize = 2;
+	private $_pageSize = 10;
 
 	public function __construct() {
 		parent::__construct();
