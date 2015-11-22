@@ -397,6 +397,11 @@ if ( ! is_php('5.4'))
 
 	$e404 = FALSE;
 	$class = ucfirst($RTR->class);
+
+	// self：如果设置了后缀，则添加进来
+	if (defined("CONTROLLER_POSTFIX")) {
+		$class = $class . CONTROLLER_POSTFIX;
+	}
 	$method = $RTR->method;
 
 	if (empty($class) OR ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php'))

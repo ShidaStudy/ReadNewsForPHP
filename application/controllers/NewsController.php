@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-include 'Base.php';
+// include 'Base.php';
 
-class News extends Base {
+class NewsController extends BaseController {
 
 	/**
 	 * 分页条数
@@ -20,6 +20,8 @@ class News extends Base {
 	 * @return [type] [description]
 	 */
 	public function getNewsList() {
+
+		Logger::error("fas");
 
 		// 接收参数
 		$inputArr['pageNo'] = $this->getParam("pageNo", 1);
