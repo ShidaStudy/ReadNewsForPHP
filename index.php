@@ -289,4 +289,11 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-require_once BASEPATH.'core/CodeIgniter.php';
+try {
+	require_once BASEPATH.'core/CodeIgniter.php';
+} catch (Exception $e) {
+	// TODO 记录到日志里
+	// crond_log($e->getCode() . '--' . $e->getMessage(), 'yaf.log');
+	dump("异常码：" . $e->getCode() . ', 异常信息为：' . $e->getMessage());
+	die;
+}

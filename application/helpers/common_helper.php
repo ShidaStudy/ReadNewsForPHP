@@ -124,8 +124,9 @@ function dump($vars, $label = '', $return = false) {
  * @param  [type]  $param [description]
  * @return boolean        [description]
  */
-function is_empty($param = false) {
-    if ($param === false || !isset($param) || empty($param)) {
+function is_empty($paramArr = false, $key = false) {
+    if ($paramArr === false || $key === false || !isset($paramArr[$key]) ||
+            empty($paramArr[$key])) {
         return true;
     }
     return false;
